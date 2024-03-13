@@ -16,18 +16,24 @@ const sudokuPuzzle = [
 
 function validnumber(r,c,k){
   const subgrid_arr=[]
+  // checks if number is the row
   row_validation=!sudokuPuzzle[r].includes(k)
   colomn_arr=[]
+  // checks if number is in colomn
   for(let i=0;i<9;i++){
     colomn_arr.push(sudokuPuzzle[i][c])
 
   }
+  // used "!" as this returns true if value is in list but we want it to return true if value is not in list
   colomn_validation=!colomn_arr.includes(k)
+    //gets the row and colomn start and end points for the current cell
   subgrid_row_start=Math.floor(r/3)*3
   subgrid_row_end=subgrid_row_start+3
   subgrid_colomn_start=Math.floor(c/3)*3
   subgrid_colomn_end=subgrid_colomn_start+3
   
+
+  //checks if number is repeated anywhere in subgrid
   for(i=0;i<subgrid_row_end;i++){
     for(j=0;j<subgrid_colomn_end;j++){
       
