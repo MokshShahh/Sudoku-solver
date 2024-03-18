@@ -86,31 +86,7 @@ function sudoku_solver(sudoku,r=0,c=0){
 document.addEventListener("DOMContentLoaded", () => {
     
     sudoku_solver(sudokuPuzzle,0,0)
-    
-    
-    
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     
     function displayArray() {
         const arrayContainer = document.getElementById('arrayContainer');
