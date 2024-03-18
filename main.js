@@ -34,8 +34,8 @@ function validnumber(r,c,k){
   
 
   //checks if number is repeated anywhere in subgrid
-  for(i=0;i<subgrid_row_end;i++){
-    for(j=0;j<subgrid_colomn_end;j++){
+  for(let i=subgrid_row_start;i<subgrid_row_end;i++){
+    for(let j=subgrid_colomn_start;j<subgrid_colomn_end;j++){
       
         subgrid_arr.push(sudokuPuzzle[i][j])
 
@@ -46,6 +46,35 @@ function validnumber(r,c,k){
   
   return(row_validation && colomn_validation && subgrid_validation)
   }
+//solves the  sudoku
+function sudoku_solver(sudoku,r=0,c=0){
+  if(r===9){
+    return true
+  }
+  else if(c===9){
+    return sudoku_solver(sudoku,r+1,0)
+  }
+  else if(sudoku[r][c]!==0){
+    return sudoku_solver(sudoku,r,c+1)
+  }
+  else{
+    for(let i=1;i<10;i++){
+      if(validnumber(r,c,i)){
+        sudoku[r][c]=i;
+        if(sudoku_solver(sudoku,r,c+1)){
+          return true
+        }
+        sudoku[r][c]=0;
+      }
+    
+    }
+    return false
+  }
+  
+
+  
+
+}
 
 
   
@@ -55,23 +84,13 @@ function validnumber(r,c,k){
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.clear()
-    validnumber(0,8,2)
+    
+    sudoku_solver(sudokuPuzzle,0,0)
     
     
+    
 
 
-
-
-    let r=0
-    let c=0
-    // for(r=0;r<9;r++){
-    //   for(c=0;c<9;c++){
-    //     if (sudokuPuzzle[r][c]==0){
-    //       sudokuPuzzle[r][c]=validnumber(r,c)
-    //     }
-    //   }
-    // }
     
     
     
