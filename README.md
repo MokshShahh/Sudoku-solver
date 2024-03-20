@@ -7,7 +7,7 @@ the solving part has 2 main functions
 validnumber:
 accepts row colomn and a number as its parameters
 checks if the number is a valid number in the sudoku grid
-(makes sure it isnt repeated in the row or colomn or subgrid of the sudoku)\n
+(makes sure it isnt repeated in the row or colomn or subgrid of the sudoku)
 2
 sudoku_solver:
 accepts the sudoku as a parameter and solves it using the backtracking algoritm
