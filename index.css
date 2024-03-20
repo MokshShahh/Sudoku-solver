@@ -1,11 +1,7 @@
 .container{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+    padding: 50px;
+    border: solid green;
+    
     
 
-}
-.child{
-    text-align: center;
-    flex-grow: 1;
 }
