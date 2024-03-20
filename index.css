@@ -1,7 +1,46 @@
-.container{
-    padding: 50px;
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: 25%;
+    
+  }
+
+  td {
+    text-align: center;
+    height: 40px;
+    
     border: solid green;
     
-    
-
+  }
+  input {
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    border: none;
+  }
+.zerotop{
+    border-top: solid black;
 }
+.zeroleft{
+    border-left: solid black;
+}
+.zeroright{
+    border-right: solid black;
+}
+.zerodown{
+    border-bottom: solid black;
+}
+.zeroright{
+    border-right: solid black;
+}
+.button_container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.button{
+    height: 40px;
+    margin-left: 40%;
+    width: 20%;
+    text-align: center;
+}
+
