@@ -8,10 +8,8 @@ table {
   td {
     text-align: center;
     height: 40px;
-    
     border: solid green;
-    
-  }
+}
   input {
     width: 50px;
     height: 40px;
