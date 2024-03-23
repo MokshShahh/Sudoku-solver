@@ -16,6 +16,8 @@ function displayArray() {
   arrayHTML += '</table>';
   arrayContainer.innerHTML = arrayHTML;
 }
+
+
 const sudokuPuzzle = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -27,6 +29,7 @@ const sudokuPuzzle = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
+
 function ong(){
   
 
@@ -43,6 +46,64 @@ function ong(){
   sudoku_solver(sudokuPuzzle)
   displayArray()
 }
+
+function generatevalid(row,colomn){
+  const min=1
+  const max=9
+  let number=Math.floor(Math.random() * (max - min) + min)
+  if (validnumber(row,colomn,number)){
+    sudokuPuzzle[row][colomn]=number
+    return true
+  }
+  else{
+    number=Math.floor(Math.random() * (max - min) + min)
+    generatevalid(row,colomn,number)
+
+  }
+
+}
+
+function generate(){
+  for(let i=0;i<9;i++){
+    for(let j=0;j<9;j++){
+      sudokuPuzzle[i][j]=0
+    }}
+
+    for(let i=0;i<9;i++){
+      for(let j=0;j<9;j++){
+        let td=document.getElementById(i.toString()+','+j.toString())
+        td.value='0'
+      }}
+
+  
+  
+  generatevalid(1,1)
+  generatevalid(1,4)
+  generatevalid(1,7)
+  
+  generatevalid(4,1)
+  generatevalid(4,4)
+  generatevalid(4,7)
+
+  generatevalid(7,1)
+  generatevalid(7,4)
+  generatevalid(7,7)
+
+  sudoku_solver(sudokuPuzzle)
+  const min=1
+  const max=9
+  for(let i=0;i<25;i++){
+    let temp_row=Math.floor(Math.random() * (max - min) + min)
+    let temp_colomn=Math.floor(Math.random() * (max - min) + min)
+    let cell=document.getElementById(temp_row.toString()+','+temp_colomn.toString())
+    cell.value=sudokuPuzzle[temp_row][temp_colomn]
+  }
+}
+  
+
+
+
+
 
 
 
@@ -78,6 +139,9 @@ function validnumber(r,c,k){
   
   return(row_validation && colomn_validation && subgrid_validation)
   }
+
+
+
 //solves the  sudoku
 function sudoku_solver(sudoku,r=0,c=0){
   if(r===9){
@@ -102,9 +166,8 @@ function sudoku_solver(sudoku,r=0,c=0){
     }
     return false
   }
-  
-
-  
-
 }
+
+
+
 
