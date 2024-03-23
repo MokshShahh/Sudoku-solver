@@ -2,19 +2,19 @@
 //test test
 //test test
 function displayArray() {
-  const arrayContainer = document.getElementById('arrayContainer');
-  let arrayHTML = '<table>';
+  for(let i=0;i<9;i++){
+    for(let j=0;j<9;j++){
+      let td=document.getElementById(i.toString()+','+j.toString())
+      td.value=sudokuPuzzle[i][j]
+    }}
+}
 
-  for (let i = 0; i < 9; i++) {
-    arrayHTML += '<tr>';
-    for (let j = 0; j < 9; j++) {
-      arrayHTML += '<td>' + sudokuPuzzle[i][j] + '</td>';
-    }
-    arrayHTML += '</tr>';
-  }
-
-  arrayHTML += '</table>';
-  arrayContainer.innerHTML = arrayHTML;
+function reset(){
+  for(let i=0;i<9;i++){
+    for(let j=0;j<9;j++){
+      let td=document.getElementById(i.toString()+','+j.toString())
+      td.value='0'
+    }}
 }
 
 
@@ -43,8 +43,11 @@ function ong(){
       
     }
   }
-  sudoku_solver(sudokuPuzzle)
-  displayArray()
+  if(sudoku_solver(sudokuPuzzle)){
+    displayArray()
+
+  }
+  
 }
 
 function generatevalid(row,colomn){
