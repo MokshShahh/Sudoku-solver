@@ -1,23 +1,3 @@
-//test test
-//test test
-//test test
-function displayArray() {
-  for(let i=0;i<9;i++){
-    for(let j=0;j<9;j++){
-      let td=document.getElementById(i.toString()+','+j.toString())
-      td.value=sudokuPuzzle[i][j]
-    }}
-}
-
-function reset(){
-  for(let i=0;i<9;i++){
-    for(let j=0;j<9;j++){
-      let td=document.getElementById(i.toString()+','+j.toString())
-      td.value='0'
-    }}
-}
-
-
 const sudokuPuzzle = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -30,7 +10,35 @@ const sudokuPuzzle = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
+//displays the sudoku by inputing the value of the individual cells of the sudokupuzzle and putting
+//these values into the respective td elemnts in the hrtml
+
+function displayArray() {
+  for(let i=0;i<9;i++){
+    for(let j=0;j<9;j++){
+      let td=document.getElementById(i.toString()+','+j.toString())
+      td.value=sudokuPuzzle[i][j]
+    }}
+}
+
+//sets the value of all the td elements in html to 0
+
+function reset(){
+  for(let i=0;i<9;i++){
+    for(let j=0;j<9;j++){
+      let td=document.getElementById(i.toString()+','+j.toString())
+      td.value='0'
+    }}
+}
+
+
+
 function ong(){
+//on clicking the sudoku solve button this functoin is run
+//idk why i called it ong
+//it takes the values entered int he td elements, puts it into the sudokupuzzle array
+//solves the sudoku puzzle
+//then displayes the answer
   
 
   for(let i=0;i<9;i++){
@@ -50,7 +58,12 @@ function ong(){
   
 }
 
+
+
 function generatevalid(row,colomn){
+  //takes row and colomn as a parameters are generates a random value for that row and colomn
+  //the value will satify the sudoku conditions
+  //used to generate a random sudoku for the user to solve
   const min=1
   const max=9
   let number=Math.floor(Math.random() * (max - min) + min)
@@ -67,6 +80,11 @@ function generatevalid(row,colomn){
 }
 
 function generate(){
+  //assigns a random value to the middle cells in each of the sudoku subgrids using the generateValid function
+  //now we have a sudoku (that only has numbers in the middle cells of the subgrids) that can be solved
+  //solves the sudoku
+  //reveals 25 random numbers on the main sudokugrid 
+  //user can solve this sudoku now
   for(let i=0;i<9;i++){
     for(let j=0;j<9;j++){
       sudokuPuzzle[i][j]=0
@@ -111,6 +129,9 @@ function generate(){
 
 
 function validnumber(r,c,k){
+  //accepts row colomn and number parameter
+  //checks if the number can be put into that row and colomn without breaking the rules of sukodu
+  //returs true if it can and false if it cannot
   const subgrid_arr=[]
   // checks if number is the row
   row_validation=!sudokuPuzzle[r].includes(k)
@@ -145,8 +166,9 @@ function validnumber(r,c,k){
 
 
 
-//solves the  sudoku
+
 function sudoku_solver(sudoku,r=0,c=0){
+  //solves the  sudoku using backtracking and the validnumber function
   if(r===9){
     return true
   }
