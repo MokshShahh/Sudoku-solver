@@ -10,10 +10,11 @@ const sudokuPuzzle = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
-//displays the sudoku by inputing the value of the individual cells of the sudokupuzzle and putting
-//these values into the respective td elemnts in the hrtml
+
 
 function displayArray() {
+  //displays the sudoku by inputing the value of the individual cells of the sudokupuzzle and putting
+//these values into the respective td elemnts in the hrtml
   for(let i=0;i<9;i++){
     for(let j=0;j<9;j++){
       let td=document.getElementById(i.toString()+','+j.toString())
@@ -21,13 +22,14 @@ function displayArray() {
     }}
 }
 
-//sets the value of all the td elements in html to 0
+
 
 function reset(){
+  //sets the value of all the td elements in html to null and changes their background colour to white
   for(let i=0;i<9;i++){
     for(let j=0;j<9;j++){
       let td=document.getElementById(i.toString()+','+j.toString())
-      td.value=null
+      td.value=''
       td.style.backgroundColor='#ffffff'
     }}
 }
@@ -102,7 +104,7 @@ function generate(){
       }}
 
   
-  
+  //generating a valid number for the middel of each  subgrid
   generatevalid(1,1)
   generatevalid(1,4)
   generatevalid(1,7)
@@ -115,15 +117,21 @@ function generate(){
   generatevalid(7,4)
   generatevalid(7,7)
 
+  //solving the sudoku with a valid number in the middle of each subgrid    
   sudoku_solver(sudokuPuzzle)
-  const min=1
+  
+  //setting the bg colour of every cell to be white
   const max=9
+  const min2=0
   for(let i=0;i<9;i++){
     for(let j=0;j<9;j++){
       let td=document.getElementById(i.toString()+','+j.toString())
       td.style.backgroundColor='#ffffff'
     }}
-  const min2=0
+  
+
+  //revealing 30 random umbers of the solved sudoku and setting the bg colour of the 
+  //revealed numbers to be cyan
   for(let i=0;i<30;i++){
     let temp_row=Math.floor(Math.random() * (max - min2) + min2)
     let temp_colomn=Math.floor(Math.random() * (max - min2) + min2)
