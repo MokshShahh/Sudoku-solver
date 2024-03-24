@@ -28,6 +28,7 @@ function reset(){
     for(let j=0;j<9;j++){
       let td=document.getElementById(i.toString()+','+j.toString())
       td.value=null
+      td.style.backgroundColor='#ffffff'
     }}
 }
 
@@ -117,11 +118,18 @@ function generate(){
   sudoku_solver(sudokuPuzzle)
   const min=1
   const max=9
+  for(let i=0;i<9;i++){
+    for(let j=0;j<9;j++){
+      let td=document.getElementById(i.toString()+','+j.toString())
+      td.style.backgroundColor='#ffffff'
+    }}
   for(let i=0;i<25;i++){
     let temp_row=Math.floor(Math.random() * (max - min) + min)
     let temp_colomn=Math.floor(Math.random() * (max - min) + min)
     let cell=document.getElementById(temp_row.toString()+','+temp_colomn.toString())
     cell.value=sudokuPuzzle[temp_row][temp_colomn]
+    cell.style.backgroundColor='#00FFFF'
+
   }
 }
   

@@ -9,7 +9,9 @@ table {
   td {
     text-align: center;
     border: dotted black;
+    
 }
+
   input {
     width: 50px;
     height: 40px;
@@ -17,7 +19,9 @@ table {
     border: none;
     font-size: large;
     font-weight: 100;
+    
   }
+
 .zerotop{
     border-top: solid black;
 }
