@@ -50,8 +50,18 @@ table {
 
 @media (max-width:800px){
     table{
-        width: 90%;
-        margin: 0px;
+        margin: 0;
+        
+        
+    }
+    .tablecontainer{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        
+        
     }
 
     input{
