@@ -92,15 +92,19 @@ function generate(){
   //solves the sudoku
   //reveals 25 random numbers on the main sudokugrid 
   //user can solve this sudoku now
+
+
+  //sets the 2d array to be empty
   for(let i=0;i<9;i++){
     for(let j=0;j<9;j++){
       sudokuPuzzle[i][j]=0
     }}
 
+    //sets the table to have no values
     for(let i=0;i<9;i++){
       for(let j=0;j<9;j++){
         let td=document.getElementById(i.toString()+','+j.toString())
-        td.value=null
+        td.value=''
       }}
 
   
