@@ -5,11 +5,10 @@ table {
     margin-left: 25%;
 }
 
+
   td {
     text-align: center;
-    height: 10%;
-    width: 5%;
-    border: solid green;
+    border: dotted black;
 }
   input {
     width: 50px;
@@ -43,5 +42,17 @@ table {
     margin-left: 40%;
     width: 20%;
     text-align: center;
+}
+
+@media (max-width:800px){
+    table{
+        width: 90%;
+        margin: 0px;
+    }
+
+    input{
+        font-size: 16px;
+        width: 29px;
+    }
 }
 

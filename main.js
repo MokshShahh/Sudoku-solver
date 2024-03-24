@@ -27,7 +27,7 @@ function reset(){
   for(let i=0;i<9;i++){
     for(let j=0;j<9;j++){
       let td=document.getElementById(i.toString()+','+j.toString())
-      td.value='0'
+      td.value=null
     }}
 }
 
@@ -46,15 +46,19 @@ function ong(){
       rr=i.toString()
       cc=j.toString()
       let but=document.getElementById(rr+','+cc)
-      sudokuPuzzle[i][j]=parseInt(but.value);
-      console.log(typeof(but.value))
+      if(but.value===''){
+        sudokuPuzzle[i][j]=0;
+      }
+      else{
+        sudokuPuzzle[i][j]=parseInt(but.value);
+      }
+      
+      
       
     }
   }
-  if(sudoku_solver(sudokuPuzzle)){
-    displayArray()
-
-  }
+  sudoku_solver(sudokuPuzzle)
+  displayArray()
   
 }
 
@@ -93,7 +97,7 @@ function generate(){
     for(let i=0;i<9;i++){
       for(let j=0;j<9;j++){
         let td=document.getElementById(i.toString()+','+j.toString())
-        td.value='0'
+        td.value=null
       }}
 
   
