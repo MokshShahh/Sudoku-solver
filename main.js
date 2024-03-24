@@ -123,9 +123,10 @@ function generate(){
       let td=document.getElementById(i.toString()+','+j.toString())
       td.style.backgroundColor='#ffffff'
     }}
-  for(let i=0;i<25;i++){
-    let temp_row=Math.floor(Math.random() * (max - min) + min)
-    let temp_colomn=Math.floor(Math.random() * (max - min) + min)
+  const min2=0
+  for(let i=0;i<30;i++){
+    let temp_row=Math.floor(Math.random() * (max - min2) + min2)
+    let temp_colomn=Math.floor(Math.random() * (max - min2) + min2)
     let cell=document.getElementById(temp_row.toString()+','+temp_colomn.toString())
     cell.value=sudokuPuzzle[temp_row][temp_colomn]
     cell.style.backgroundColor='#00FFFF'
