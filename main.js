@@ -144,6 +144,7 @@ function generate(){
     cell.style.backgroundColor='#00FFFF'
 
   }
+  
 }
   
 
