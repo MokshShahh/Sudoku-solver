@@ -1,5 +1,5 @@
 # Sudoku-solver
-A web-based Sudoku solver that uses a backtracking algorithm to solve Sudoku puzzles.
+A web-based Sudoku solver that uses a backtracking algorithm to solve and generate Sudoku puzzles.
 
 The backtracking algorithm used in this project works as follows:
 
