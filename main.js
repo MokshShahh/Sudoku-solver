@@ -10,6 +10,46 @@ const sudokuPuzzle = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
+function checkValid(){
+for (let row = 0; row < 9; row++) {
+  for (let col = 0; col < 9; col++) {
+
+      if (sudokuPuzzle[row][col] !== '0') {
+          // Print current value being checked (for debugging purposes)
+          console.log(sudokuPuzzle[row][col]);
+
+          // Check the row
+          let rowList = sudokuPuzzle[row].slice();
+          rowList.splice(col, 1);  // Remove the current cell from the list
+          let rowTrue = !rowList.includes(sudokuPuzzle[row][col]);
+
+          // Check the column
+          let columnList = [];
+          for (let i = 0; i < 9; i++) {
+              columnList.push(sudokuPuzzle[i][col]);
+          }
+          columnList.splice(row, 1);  // Remove the current cell from the list
+          let columnTrue = !columnList.includes(sudokuPuzzle[row][col]);
+
+          // Check the 3x3 subgrid
+          let subgridList = [];
+          for (let r = Math.floor(row / 3) * 3; r < Math.floor(row / 3) * 3 + 3; r++) {
+              for (let c = Math.floor(col / 3) * 3; c < Math.floor(col / 3) * 3 + 3; c++) {
+                  subgridList.push(sudokuPuzzle[r][c]);
+              }
+          }
+          subgridList.splice(subgridList.indexOf(sudokuPuzzle[row][col]), 1);  // Remove the current cell from the list
+          let subgridTrue = !subgridList.includes(sudokuPuzzle[row][col]);
+
+          // Check if all conditions are true
+          console.log(rowTrue && columnTrue && subgridTrue)
+          return (rowTrue && columnTrue && subgridTrue)
+      }
+  }
+}
+
+}
+
 
 
 function displayArray() {
@@ -32,6 +72,7 @@ function reset(){
       td.value=''
       td.style.backgroundColor='#ffffff'
     }}
+    
 }
 
 
@@ -42,26 +83,36 @@ function ong(){
 //it takes the values entered int he td elements, puts it into the sudokupuzzle array
 //solves the sudoku puzzle
 //then displayes the answer
-  
-
-  for(let i=0;i<9;i++){
-    for(let j=0;j<9;j++){
-      rr=i.toString()
-      cc=j.toString()
-      let but=document.getElementById(rr+','+cc)
-      if(but.value===''){
-        sudokuPuzzle[i][j]=0;
-      }
-      else{
-        sudokuPuzzle[i][j]=parseInt(but.value);
-      }
-      
-      
-      
+for(let i=0;i<9;i++){
+  for(let j=0;j<9;j++){
+    rr=i.toString()
+    cc=j.toString()
+    let but=document.getElementById(rr+','+cc)
+    if(but.value===''){
+      sudokuPuzzle[i][j]=0;
     }
+    else{
+      sudokuPuzzle[i][j]=parseInt(but.value);
+    }
+    
+    
+    
   }
+}
+  if (checkValid()){
+  
   sudoku_solver(sudokuPuzzle)
   displayArray()
+  
+}
+else{
+  document.getElementById("check").innerHTML="not valid sudoku"
+  setTimeout(() => {
+    document.getElementById("check").innerHTML="hello";
+  }, 2000);
+  
+  
+}
   
 }
 
@@ -81,7 +132,11 @@ function generatevalid(row,colomn){
   else{
     number=Math.floor(Math.random() * (max - min) + min)
     generatevalid(row,colomn,number)
-
+    for(let i=0;i<9;i++){
+      for(let j=0;j<9;j++){
+        sudokuPuzzle[i][j]=0
+      }}
+      
   }
 
 }
@@ -195,6 +250,7 @@ function validnumber(r,c,k){
 
 function sudoku_solver(sudoku,r=0,c=0){
   //solves the  sudoku using backtracking and the validnumber function
+
   if(r===9){
     return true
   }
