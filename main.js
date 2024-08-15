@@ -42,6 +42,7 @@ for (let row = 0; row < 9; row++) {
           let subgridTrue = !subgridList.includes(sudokuPuzzle[row][col]);
 
           // Check if all conditions are true
+          //todo bug exists here fix when back
           console.log(rowTrue && columnTrue && subgridTrue)
           return (rowTrue && columnTrue && subgridTrue)
       }
