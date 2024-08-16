@@ -14,7 +14,7 @@ function checkValid(){
 for (let row = 0; row < 9; row++) {
   for (let col = 0; col < 9; col++) {
 
-      if (sudokuPuzzle[row][col] !== '0') {
+      if (sudokuPuzzle[row][col] !== 0) {
           // Print current value being checked (for debugging purposes)
           console.log(sudokuPuzzle[row][col]);
 
@@ -43,11 +43,21 @@ for (let row = 0; row < 9; row++) {
 
           // Check if all conditions are true
           //todo bug exists here fix when back
-          console.log(rowTrue && columnTrue && subgridTrue)
-          return (rowTrue && columnTrue && subgridTrue)
+          let condition=rowTrue && columnTrue && subgridTrue
+          if(rowTrue==false || columnTrue==false || subgridTrue==false){
+            return false
+          }
+          // if(!condition){
+          //   return condition
+          // }
+          console.log(condition)
+
+
+          
       }
   }
 }
+return true
 
 }
 
