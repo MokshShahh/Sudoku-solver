@@ -1,77 +1,83 @@
+body {
+  background-color: #d0e0d8;
+}
+
 table {
-    border-collapse: collapse;
-    width: 50%;
- 
-    margin-left: 25%;
+  border-collapse: collapse;
+  width: 50%;
+
+  margin-left: 25%;
 }
 
-
-  td {
-    text-align: center;
-    border: dotted black;
-    
+td {
+  text-align: center;
+  border: dotted black;
+}
+input {
+  background-color: #f9f3e8;
 }
 
-  input {
-    width: 95%;
-    height: 40px;
-    text-align: center;
-    border: none;
-    font-size: large;
-    font-weight: 100;
-    
+input {
+  width: 95%;
+  height: 40px;
+  text-align: center;
+  border: none;
+  font-size: large;
+  font-weight: 100;
+}
+
+.zerotop {
+  border-top: solid black;
+}
+.zeroleft {
+  border-left: solid black;
+}
+.zeroright {
+  border-right: solid black;
+}
+.zerodown {
+  border-bottom: solid black;
+}
+.zeroright {
+  border-right: solid black;
+}
+.button_container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.button {
+  height: 40px;
+  margin-left: 40%;
+  width: 20%;
+  text-align: center;
+  background-color: #d0e7ff;
+  border-radius: 10px;
+  border: 1.5px solid #000101;
+}
+
+.button:hover {
+  background-color: #00bcd4;
+  color: #000101;
+}
+
+@media (max-width: 800px) {
+  table {
+    margin: 0;
+  }
+  .tablecontainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-.zerotop{
-    border-top: solid black;
+  input {
+    font-size: 16px;
+    width: 29px;
+  }
+  .button {
+    display: block;
+    width: 150px;
+    margin: auto;
+  }
 }
-.zeroleft{
-    border-left: solid black;
-}
-.zeroright{
-    border-right: solid black;
-}
-.zerodown{
-    border-bottom: solid black;
-}
-.zeroright{
-    border-right: solid black;
-}
-.button_container{
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.button{
-    height: 40px;
-    margin-left: 40%;
-    width: 20%;
-    text-align: center;
-}
-
-@media (max-width:800px){
-    table{
-        margin: 0;
-        
-        
-    }
-    .tablecontainer{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        
-        
-    }
-
-    input{
-        font-size: 16px;
-        width: 29px;
-    }
-    .button{
-        display: block;
-        width: 150px;
-        margin: auto;
-    }
-}
-

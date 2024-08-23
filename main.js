@@ -81,7 +81,7 @@ function reset(){
     for(let j=0;j<9;j++){
       let td=document.getElementById(i.toString()+','+j.toString())
       td.value=''
-      td.style.backgroundColor='#ffffff'
+      td.style.backgroundColor='#f9f3e8'
     }}
     
 }
@@ -117,10 +117,44 @@ for(let i=0;i<9;i++){
   
 }
 else{
-  document.getElementById("check").innerHTML="not valid sudoku"
+  document.getElementsByClassName("container")[0].innerHTML=
+  `<div style="
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #00bcd4;
+  border: 2px solid #a3c4f3;
+  border-radius: 8px;
+  color: #0d3b66;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  margin:30%;
+  margin-top:20px;
+  transition: all 0.3s ease-in-out;
+">
+  Not Valid Sudoku
+</div>`;"not valid sudoku"
   setTimeout(() => {
-    document.getElementById("check").innerHTML="hello";
-  }, 2000);
+    document.getElementsByClassName("container")[0].innerHTML=`<div>
+    <div class="button_container">
+        <button class="button" onclick="ong()">
+            Solve Sudoku
+        </button>
+        <div class="button_container">
+            <button class="button" onclick="generate()">
+                Generate Sudoku
+            </button>
+            <div class="button_container" onclick="reset()">
+                <button class="button" onclick="generate()">
+                    Reset Sudoku
+                </button>
+
+
+</div>`;
+  }, 1500);
   
   
 }
@@ -196,7 +230,7 @@ function generate(){
   for(let i=0;i<9;i++){
     for(let j=0;j<9;j++){
       let td=document.getElementById(i.toString()+','+j.toString())
-      td.style.backgroundColor='#ffffff'
+      td.style.backgroundColor='#f9f3e8'
     }}
   
 
